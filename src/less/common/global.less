@@ -1,0 +1,530 @@
+@import "variables";
+
+// Suppress the focus outline on elements that cannot be accessed via keyboard.
+// see: https://github.com/suitcss/base
+[tabindex='-1']:focus {
+  outline: none !important;
+}
+
+// iOS 'clickable elements' fix for role='button'
+// see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+[role='button'] {
+  cursor: pointer;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: @font-size-base;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-overflow-style: scrollbar;
+  -ms-text-size-adjust: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  color: @font_color;
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  //@media (max-width: @screen-md) {
+  //  font-size: @font-size-sm;
+  //}
+}
+
+.page--overlay {
+  overflow: hidden;
+}
+
+.page__wrapper {
+  position: relative;
+  overflow: hidden;
+
+  &--stretch {
+    height: 100vh;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+ul,
+ol {
+  padding-left: 1.8em;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li {
+  line-height: @line-height;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-left: 0;
+
+  @media (min-width: @screen-sm) {
+    margin-left: 1.8em;
+  }
+}
+
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+
+p,
+ul,
+ol {
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+label {
+  display: inline-block;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: none;
+}
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  padding: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+textarea,
+select[multiple] {
+  height: auto;
+}
+
+input[type='color'] {
+  max-width: 100px;
+}
+
+input[type='range'] {
+  width: 100%;
+}
+
+table {
+  border: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding: 0.6em;
+}
+
+td {
+  padding: 0.6em;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 .8em 0;
+  cursor: default;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-family: @font-family-title;
+  color: @font_color;
+
+  &.-nomargin {
+    margin: 0;
+  }
+
+  &.-nomargin-top {
+    margin-top: 0;
+  }
+
+  &.-nomargin-bottom {
+    margin-bottom: 0;
+  }
+
+}
+
+h1 {
+  font-size: @font-size-h1;
+  line-height: 2;
+}
+
+h2 {
+  font-size: @font-size-h2;
+}
+
+h3 {
+  font-size: @font-size-h3;
+}
+
+h4 {
+  font-size: @font-size-h4;
+}
+
+h5 {
+  font-size: @font-size-h5;
+}
+
+h6 {
+  font-size: @font-size-h6;
+}
+
+p {
+  margin: 15px 0;
+}
+
+a {
+  transition: .15s linear;
+  cursor: pointer;
+  line-height: @line-height;
+  text-decoration: underline;
+  color: @font_color;
+  font-weight: 300;
+
+  &.-nounderline {
+    text-decoration: none;
+  }
+
+  &:hover, &:focus {
+    color: darken(@font_color, 20%);
+    outline: none;
+  }
+
+  &.-brown {
+    color: @link_color;
+    font-family: @font-family-base;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 300;
+
+    &:hover, &:focus {
+      color: darken(@link_color, 20%);
+      outline: none;
+    }
+  }
+
+  &.-nav {
+    text-decoration: none;
+    color: @font_color;
+    font-family: @font-family-base;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 2;
+
+    &:hover, &:focus {
+      color: darken(@font_color, 20%);
+      outline: none;
+    }
+  }
+}
+
+.textfield {
+  appearance: none;
+  transition: .15s linear;
+  text-rendering: geometricPrecision;
+  font-smooth: always;
+  color: @font_color;
+
+  display: inline-block;
+  min-width: 338px;
+  padding: 13px 18px;
+  position: relative;
+  background: @white;
+  border: 1px solid @link_color;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: @letter-spacing;
+  font-family: @font-family-base;
+  margin-bottom: 15px;
+  //margin-right: 18px;
+
+  @media all and (max-width: @screen-sm) {
+    min-width: 100%;
+    margin-right: 0;
+  }
+}
+
+.textfield::-webkit-input-placeholder {
+  transition: .25s ease-out;
+  opacity: 1;
+  text-overflow: ellipsis;
+  color: @link_color;
+  font-weight: 300;
+}
+
+.textfield::-moz-placeholder {
+  transition: .25s ease-out;
+  opacity: 1;
+  text-overflow: ellipsis;
+  color: @link_color;
+  font-weight: 300;
+}
+
+.textfield:-ms-input-placeholder {
+  transition: .25s ease-out;
+  opacity: 1;
+  text-overflow: ellipsis;
+  color: @link_color;
+  font-weight: 300;
+}
+
+.textfield:hover {
+  border-color: darken(@link_color, 10%);
+}
+
+.textfield:focus, .textfield:active {
+  background: @white;
+  border-color: darken(@link_color, 10%);
+  outline: none;
+}
+
+.textfield.textfield--area {
+  resize: none;
+  height: 300px;
+}
+
+.select {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    transition: .25s ease-out;
+
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    z-index: -1;
+    transform: rotate(90deg);
+    background: no-repeat center / contain;
+    background-image: url(../svg/arrow_right_brown.svg);
+  }
+
+  .select__input {
+    appearance: none;
+    transition: .25s ease-out;
+
+    display: inline-block;
+    min-width: 222px;
+    width: 100%;
+    padding: 10px 0 10px 30px;
+    position: relative;
+    background: transparent;
+    border: none;
+    text-rendering: geometricPrecision;
+    font-smooth: always;
+    font-size: 16px;
+    letter-spacing: @letter-spacing;
+    z-index: 2;
+    cursor: pointer;
+    font-family: @font-family-base;
+    color: @disabled_color;
+    font-weight: 300;
+    font-style: italic;
+
+    option {
+      color: @font_color;
+      font-weight: 400;
+      text-align-last: center;
+      text-align: center;
+      font-style: normal;
+
+      &:disabled {
+        color: @disabled_color;
+        font-weight: 300;
+        font-style: italic;
+        font-family: @font-family-base;
+      }
+    }
+
+    &:hover {
+      outline: none;
+      border: none;
+    }
+
+    &:focus, &:active {
+      outline: none;
+      border: none;
+    }
+  }
+}
+
+.button {
+  appearance: none;
+  transition: .25s ease-out;
+  display: inline-block;
+  min-width: 230px;
+  padding: 13px 22px;
+  position: static;
+  cursor: pointer;
+  border: 1px solid @link_color;
+  background: @link_color;
+  border-radius: 0;
+  font-family: @font-family-base;
+  font-weight: 300;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  font-size: 14px;
+  color: @white;
+  text-transform: uppercase;
+  letter-spacing: @letter-spacing;
+
+  @media all and (max-width: @screen-sm) {
+    width: 100%;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: darken(@link_color, 5%);
+    outline: none;
+    border: 1px solid darken(@link_color, 5%);
+  }
+}
+
+
+.icon {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  background: no-repeat center / contain;
+
+  &--hamburger {
+    background-image: url(../svg/hamburger.svg);
+  }
+}
+
+.sender {
+  z-index: 9999;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 30px;
+  background: red;
+  color: @white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  &--good {
+    background: @bg-page_color;
+    color: @black;
+  }
+}
+
+.soc-link {
+  display: inline-block;
+  padding-left: 40px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  .fa{
+    font-size: 24px;
+  }
+}
+
+@media all and (max-width: @screen-lg) {
+  .soc-link {
+    padding: 0 10px;
+  }
+}
+
+@media all and (max-width: (@screen-md - 1)) {
+  h1 {
+    font-size: @font-size-h2;
+  }
+
+  h2 {
+    font-size: @font-size-h3;
+  }
+}

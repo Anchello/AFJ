@@ -1,0 +1,40 @@
+.studio {
+  padding: 25px 0;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__photo {
+    .col (xs, 24);
+    .col (lg, 8);
+
+    @media all and (max-width: (@screen-lg - 1)) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__text{
+    .col (xs, 24);
+    .col (lg, 15);
+    .col-offset(lg, 1);
+  }
+
+  &__row {
+    .row;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &--reverse {
+      flex-direction: row-reverse;
+
+      .studio__photo {
+        .col-offset(lg, 1);
+      }
+
+      .studio__text {
+        .col-offset(lg, 0);
+      }
+    }
+  }
+}

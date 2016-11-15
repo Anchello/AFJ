@@ -1,0 +1,136 @@
+.catalogue {
+  padding: 100px 0 70px;
+
+  @media all and (max-width: (@screen-md - 1)) {
+    padding: 20px 0 35px;
+  }
+
+  &__wrapper {
+    .row;
+  }
+
+  &__nav {
+    .col (xs, 24);
+    .col (md, 7);
+    .col (xl, 5);
+  }
+
+  &__list {
+    .col (xs, 24);
+    .col (md, 17);
+    .col (xl, 19);
+  }
+
+  &__row {
+    .row;
+  }
+
+  &__item {
+    .col (xs, 12);
+    .col (md, 8);
+    .col (lg, 6);
+  }
+
+  &__title {
+    @media all and (max-width: (@screen-md - 1)) {
+      text-align: center;
+    }
+  }
+
+  &__nav-list {
+    .hidden-down(sm);
+    padding-left: 0;
+    list-style: none;
+    padding-right: 36px;
+
+    @media all and (max-width: @screen-xxl) {
+      padding-right: 0;
+    }
+  }
+
+  &__nav-text {
+    transition: .25s ease-out;
+    border-bottom: 1px solid transparent;
+    line-height: 2;
+    display: inline-block;
+    cursor: pointer;
+
+    &--opened {
+      border-bottom: 1px solid @logo_color;
+      color: darken(@font_color, 20%);
+    }
+
+    &:hover {
+      border-bottom: 1px solid @logo_color;
+      color: darken(@font_color, 20%);
+    }
+  }
+
+  &__select {
+    font-size: 16px;
+    display: none;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      transition: .25s ease-out;
+
+      content: '';
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 16px;
+      right: 5px;
+      z-index: -1;
+      transform: rotate(90deg);
+      background: no-repeat center / contain;
+      background-image: url(../svg/arrow_right_brown.svg);
+    }
+
+    &.active {
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__field {
+    font-style: italic;
+    padding: 12px 15px;
+    color: @disabled_color;
+    font-weight: 300;
+
+    &--checked {
+      font-style: normal;
+      font-weight: 400;
+      color: @font_color;
+    }
+  }
+
+  &__droplist {
+    padding-left: 0;
+    list-style: none;
+    padding-right: 15px;
+    display: none;
+  }
+
+  &__nav-item {
+    padding: 5px 0;
+  }
+
+  &__droplist-item {
+    transition: .25s ease-out;
+    cursor: pointer;
+    padding: 12px 15px;
+
+    &:hover, &:focus, &:active {
+      background: @bg-active_color;
+    }
+  }
+
+  &__mobile-nav {
+    //display: flex;
+    //justify-content: space-between;
+    position: relative;
+  }
+}

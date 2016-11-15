@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta name="author" content="Boroda Digital, borodaboroda.com">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>Контакты — Alexfox jewelry</title>
+
+    @@include('include/page-head.html')
+</head>
+<body>
+<div class="page__wrapper">
+
+    @@include('include/page-header.html')
+
+    <div class="contact">
+        <div class="container">
+            <div class="contact__row">
+                <div class="contact__info">
+                    <div class="contact__item">
+                        <h2 class="-nomargin">Контакты</h2>
+                    </div>
+
+                    <div class="contact__item">
+                        <span class="contact__item-adress">ул. Ломоносова, 16 <br> Санкт-Петербург</span>
+                    </div>
+
+                    <div class="contact__item">
+                        <a href="tel:+79219412561" class="-nounderline">+7 (921) 941 - 25 - 61</a>
+                    </div>
+
+                    <div class="contact__item">
+                        <a href="mailto:afjewelry@info.mail.com" class="-nounderline">afjewelry@info.mail.com</a>
+                    </div>
+
+                    <div class="contact__item contact__item--social">
+                        <a href="https://vk.com/club57832748" class="soc-link -nounderline" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+
+                        <a href="https://www.facebook.com/alexfoxjewelry" class="soc-link -nounderline"  target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                        <a href="https://www.instagram.com/alexfoxjewelry/" class="soc-link -nounderline"  target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+
+                    <form class="contact__form">
+                        <h2>Связаться с нами</h2>
+
+                        <input type="text" class="textfield" name="name" placeholder="Имя">
+
+                        <input type="text" class="textfield" name="surname" placeholder="Фамилия">
+
+                        <input type="tel" class="textfield" name="phone" placeholder="Телефон">
+
+                        <input type="email" class="textfield" name="mail" placeholder="E-mail">
+
+                        <div class="contact__btn">
+                            <button class="button" type="submit">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact__map">
+                    <div class="map" id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Y6AtwNHYL36BNg6kfmqo4L6DgLOdLac"></script>
+<script src="js/map.js"></script>
+@@include('include/page-bottom.html')
+</body>
+</html>
